@@ -156,6 +156,15 @@ define Device/firewrt
 endef
 TARGET_DEVICES += firewrt
 
+define Device/gehua_ghl-r-001
+  DTS := GHL-R-001
+  IMAGE_SIZE := $(ralink_default_fw_size_32M)
+  DEVICE_TITLE := GeHua GHL-R-001
+  DEVICE_PACKAGES := \
+	kmod-mt7603 kmod-mt76x2 kmod-usb3 kmod-usb-ledtrig-usbport wpad-basic
+endef
+TARGET_DEVICES += gehua_ghl-r-001
+
 define Device/gnubee_gb-pc1
   DTS := GB-PC1
   DEVICE_TITLE := GnuBee Personal Cloud One
@@ -366,14 +375,6 @@ define Device/timecloud
 endef
 TARGET_DEVICES += timecloud
 
-define Device/u7621-06-256M-16M
-  DTS := U7621-06-256M-16M
-  IMAGE_SIZE := 16064k
-  DEVICE_TITLE := UniElec U7621-06 (256M RAM/16M flash)
-  DEVICE_PACKAGES := kmod-ata-core kmod-ata-ahci kmod-sdhci-mt7620 kmod-usb3
-endef
-TARGET_DEVICES += u7621-06-256M-16M
-
 define Device/ubnt-erx
   DTS := UBNT-ERX
   FILESYSTEMS := squashfs
@@ -393,6 +394,23 @@ define Device/ubnt-erx-sfp
   DEVICE_PACKAGES += kmod-i2c-algo-pca kmod-gpio-pca953x kmod-i2c-gpio-custom
 endef
 TARGET_DEVICES += ubnt-erx-sfp
+
+define Device/unielec_u7621-06-256m-16m
+  DTS := U7621-06-256M-16M
+  IMAGE_SIZE := 16064k
+  DEVICE_TITLE := UniElec U7621-06 (256M RAM/16M flash)
+  DEVICE_PACKAGES := kmod-ata-core kmod-ata-ahci kmod-sdhci-mt7620 kmod-usb3
+  SUPPORTED_DEVICES += u7621-06-256M-16M
+endef
+TARGET_DEVICES += unielec_u7621-06-256m-16m
+
+define Device/unielec_u7621-06-512m-64m
+  DTS := U7621-06-512M-64M
+  IMAGE_SIZE := 65216k
+  DEVICE_TITLE := UniElec U7621-06 (512M RAM/64M flash)
+  DEVICE_PACKAGES := kmod-ata-core kmod-ata-ahci kmod-sdhci-mt7620 kmod-usb3
+endef
+TARGET_DEVICES += unielec_u7621-06-512m-64m
 
 define Device/vr500
   DTS := VR500
